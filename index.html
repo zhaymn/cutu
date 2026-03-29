@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>For Krishmita 🪻</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet"/>
+
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  min-height: 100vh;
+  background: #f7f2ff;
+  font-family: 'Lora', serif;
+  color: #2e1a47;
+  overflow-x: hidden;
+}
+
+.petal {
+  position: fixed;
+  pointer-events: none;
+  font-size: 18px;
+  animation: fall linear infinite;
+  opacity: 0;
+  z-index: 0;
+}
+@keyframes fall {
+  0%   { transform: translateY(-40px) rotate(0deg); opacity: 0.7; }
+  100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
+}
+
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 3rem 1.5rem;
+  z-index: 1;
+}
+
+.hero-badge {
+  display: inline-block;
+  background: #eadcff;
+  color: #7b2cbf;
+  font-size: 13px;
+  letter-spacing: 0.12em;
+  padding: 6px 20px;
+  border-radius: 99px;
+  margin-bottom: 2rem;
+  border: 1px solid #d0b3ff;
+  animation: fadeUp 0.8s ease both;
+}
+
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(3rem, 10vw, 6rem);
+  font-weight: 600;
+  color: #2e1a47;
+  line-height: 1.1;
+  animation: fadeUp 0.9s ease both;
+}
+
+.hero h1 span {
+  color: #9d4edd;
+  font-style: italic;
+}
+
+.hero-sub {
+  margin-top: 1.2rem;
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  color: #a663cc;
+  font-style: italic;
+  animation: fadeUp 1s ease both;
+}
+
+.scroll-hint {
+  margin-top: 3rem;
+  font-size: 22px;
+  animation: bounce 2s infinite;
+  color: #9d4edd;
+}
+
+@keyframes bounce {
+  0%,100% { transform: translateY(0); }
+  50%      { transform: translateY(8px); }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.divider {
+  text-align: center;
+  color: #cdb4ff;
+  font-size: 22px;
+  letter-spacing: 10px;
+}
+
+.section {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 5rem 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+.section-label {
+  font-family: 'Playfair Display', serif;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  color: #9d4edd;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.section-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: #d0b3ff;
+}
+
+.letter-card {
+  background: #f3ebff;
+  border: 1px solid #d0b3ff;
+  border-radius: 20px;
+  padding: 2.5rem;
+  box-shadow: 0 2px 40px rgba(128,0,128,0.08);
+}
+
+.letter-card::before {
+  content: '\201C';
+  font-size: 100px;
+  color: #e0c3fc;
+  position: absolute;
+  top: -10px;
+  left: 20px;
+}
+
+.letter-card p {
+  font-size: 1.1rem;
+  line-height: 1.9;
+  font-style: italic;
+}
+
+.letter-sig {
+  margin-top: 2rem;
+  text-align: right;
+  font-size: 1.3rem;
+  color: #9d4edd;
+}
+
+.reasons-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  margin-top: 1.5rem;
+}
+
+.reason-card {
+  background: #f3ebff;
+  border: 1px solid #d0b3ff;
+  border-radius: 16px;
+  padding: 1.5rem;
+  text-align: center;
+  transition: 0.2s;
+}
+
+.reason-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 30px rgba(128,0,128,0.12);
+}
+
+.reason-icon { font-size: 28px; margin-bottom: 10px; }
+
+.reason-card h3 {
+  font-family: 'Playfair Display', serif;
+  color: #2e1a47;
+}
+
+.reason-card p {
+  font-size: 0.85rem;
+  color: #7b2cbf;
+}
+
+.gallery-strip {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-top: 1.5rem;
+}
+
+.gallery-placeholder {
+  aspect-ratio: 1;
+  background: linear-gradient(145deg, #efe4ff, #f7f2ff);
+  border-radius: 14px;
+  border: 1.5px dashed #cdb4ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #7b2cbf;
+  font-size: 11px;
+}
+
+.gallery-uploaded {
+  aspect-ratio: 1;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid #d0b3ff;
+}
+
+.flower-box {
+  aspect-ratio: 1;
+  border-radius: 14px;
+  border: 1px solid #d0b3ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f3ebff;
+}
+
+/* 🌸 FLOWER */
+.flower {
+  position: relative;
+  width: 60px;
+  height: 60px;
+}
+
+/* petals */
+.flower span {
+  position: absolute;
+  width: 26px;
+  height: 26px;
+  background: #5e1496;
+  border-radius: 50%;
+}
+
+/* top */
+.flower span:nth-child(1) {
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* right */
+.flower span:nth-child(2) {
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* bottom */
+.flower span:nth-child(3) {
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* left */
+.flower span:nth-child(4) {
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.flower-box:hover .flower {
+  transform: scale(1.15);
+  transition: 0.3s;
+}
+
+/* center dot */
+.flower::after {
+  content: "";
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  background: white;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.gallery-uploaded img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.footer {
+  text-align: center;
+  padding: 4rem;
+}
+
+.footer p {
+  font-family: 'Playfair Display', serif;
+  color: #7b2cbf;
+}
+</style>
+</head>
+
+<body>
+
+<section class="hero">
+  <div class="hero-badge">✦ a little something for you ✦</div>
+  <h1>Hey, <span>Krishmita</span> 💜</h1>
+  <p class="hero-sub">this page was made with love, just for you</p>
+  <div class="scroll-hint">↓</div>
+</section>
+
+<div class="divider">❀ ❀ ❀</div>
+
+<section class="section">
+  <div class="section-label">a letter from the heart</div>
+  <div class="letter-card">
+    <p>
+      Heyyy Krishmiiii, I know it's been a longgg longgg week and I'm really proud of you for making it through it 💜
+    </p>
+    <div class="letter-sig">— yours, always ♡</div>
+  </div>
+</section>
+
+<div class="divider">❀ ❀ ❀</div>
+
+<section class="section">
+  <div class="section-label">reasons I love you</div>
+  <div class="reasons-grid">
+    <div class="reason-card">✨ You complete me</div>
+    <div class="reason-card">💪 Your strength</div>
+    <div class="reason-card">🤝 We make it through</div>
+    <div class="reason-card">🌸 Just you</div>
+  </div>
+</section>
+
+<!-- ❀ ❀ ❀ -->
+<div class="divider">❀ ❀ ❀</div>
+
+<div class="divider">❀ ❀ ❀</div>
+
+<section class="section">
+  <div class="section-label">our photos</div>
+
+  <div class="gallery-strip">
+    
+    <div class="gallery-uploaded"><img src="images/1.jpeg"></div>
+    <div class="gallery-uploaded"><img src="images/2.jpeg"></div>
+    <div class="gallery-uploaded"><img src="images/3.jpeg"></div>
+
+    <div class="gallery-uploaded"><img src="images/4.jpeg"></div>
+
+    <!-- 🌸 CENTER FLOWER -->
+<div class="flower-box">
+  <svg viewBox="0 0 100 100" width="70" height="70">
+
+    <!-- stem -->
+    <rect x="48" y="45" width="4" height="35" fill="#7b2cbf"/>
+
+    <!-- leaves -->
+    <path d="M50 65 C30 60, 30 80, 50 75" fill="#9d4edd"/>
+    <path d="M50 65 C70 60, 70 80, 50 75" fill="#9d4edd"/>
+
+    <!-- tulip petals -->
+    <path d="M50 20 
+             C35 35, 35 50, 50 50 
+             C65 50, 65 35, 50 20Z"
+          fill="#c77dff"/>
+
+    <!-- inner petal detail -->
+    <path d="M50 25 
+             C42 35, 42 45, 50 45 
+             C58 45, 58 35, 50 25Z"
+          fill="#9d4edd"/>
+
+  </svg>
+</div>
+
+    <div class="gallery-uploaded"><img src="images/5.jpeg"></div>
+
+    <div class="gallery-uploaded"><img src="images/6.jpeg"></div>
+    <div class="gallery-uploaded"><img src="images/7.jpeg"></div>
+    <div class="gallery-uploaded"><img src="images/8.jpeg"></div>
+
+  </div>
+</section>
+
+<footer class="footer">
+  <p>I love you more than words can say 💜</p>
+</footer>
+
+</body>
+</html>
